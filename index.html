@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Customer List Sample</title>
+	<link rel="stylesheet" href="styleTestProject.css">
+    <script src="./js/jquery-1.9.0.min.js"></script>
+	<script type="text/javascript">
+		var countDisplay=0;
+		$(document).ready(function () {
+			$.ajax({
+				type:"GET",
+				url: "https://natnz.heliohost.org/flask/customers",
+				dataType: "JSON",
+				success:function (data) {
+					console.log(data);					     
+					show_customers(data);
+					//alert('Number of customers='+ countDisplay);
+				},
+				error: function () {
+					alert("not customers received");
+				}
+
+			});
+
+			$.ajax({
+				type:"GET",
+				url: "https://natnz.heliohost.org/flask/customers/countryList",
+				dataType: "JSON",
+				success:function (data) {
+					console.log(data);
+					i = 0;
+					while (i<data.length){
+						$("#ourCountries").append("<option value='" +data[i]+"'>" +data[i]+"</option>");
+						i++;
+					}
+
+				},
+				error: function () {
+					alert("not customers received");
+				}
+
+			});
+
+
+		});
+		function customer(customerNumber, customerName, contactLastName,  contactFirstName, phone, country ) {
+    				this.customerNumber = customerNumber;
+					this.customerName = customerName;
+					this.contactLastName = contactLastName;
+					this.contactFirstName = contactFirstName;
+   					this.phone = phone;
+					this.country = country ;
+    				  
+    				
+		}
+		
+		function show_customers(customers) {
+			var displaytext='';
+			var alternativeRow=0;
+			
+			var table = document.getElementById('dispCustomers');
+			for(var i=0; i < customers.length; i++ ){
+	
+				var row = table.insertRow(i+1);
+				// to add alternative colour for table's rows
+				if (alternativeRow==0) { 
+					alternativeRow=1;
+				}
+				else {			
+					alternativeRow=0;
+					row.setAttribute('class', 'secondRow');
+				}
+				
+				var cell1 = row.insertCell(0);
+				var cell2 = row.insertCell(1);
+				var cell3 = row.insertCell(2);
+				var cell4 = row.insertCell(3);
+				var cell5 = row.insertCell(4);
+				var cell6 = row.insertCell(5);
+				var cellName ='s'+i;
+				cell1.innerHTML = customers[i].customerNumber ;
+				cell2.innerHTML = customers[i].customerName ;
+				cell3.innerHTML =  customers[i].contactLastName ;
+				cell4.innerHTML =  customers[i].contactFirstName ;
+				cell5.innerHTML = customers[i].phone;
+				cell6.innerHTML = customers[i].country; 
+				//countDisplay=countDisplay+1;
+				
+				 	
+			}
+		}
+	</script>
+</head>
+<body>
+
+<p>Customer List </p>
+<select id='ourCountries' onchange="selectCountry()">
+	<option value="Any" selected>Any</option>
+
+</select>
+<table  id="dispCustomers" class="tabBody">
+	<tr class="tabTop">
+		<th>Customer Number</th>
+		<th>Company Name</th>
+		<th>Contact Last Name</th>
+		<th>Contact First Name</th>
+		<th>Phone</th>
+		<th>Country</th>
+	</tr>
+</table>
+<script>
+
+
+
+function  selectCountry() {
+			//var ourCountry = getElementById('ourCountries').value;
+			var ourCountry =document.getElementById('ourCountries').value;
+			var ourURL ="https://natnz.heliohost.org/flask/customers/country/" + ourCountry;
+			$("#dispCustomers").find("tr:gt(0)").remove();
+			//alert(ourURL);
+			$.ajax({
+				type:"GET",
+				url: ourURL,
+				dataType: "JSON",
+				success:function (data) {
+					console.log(data);					     
+					show_customers(data);
+					//alert('Number of customers='+ countDisplay);
+				},
+				error: function () {
+					alert("not customers received");
+				}
+
+			});
+
+
+		}
+</script>
+</body>
+</html>
