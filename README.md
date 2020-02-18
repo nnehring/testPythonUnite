@@ -92,6 +92,6 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+* Thank you Lei for your help to find free host and your help with working example
+* Inspiration from Guillermo to put this on GitHub
+* to all our helpfull staff
