@@ -9,16 +9,16 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 Registrations:
-  1 Creat/ Register  your Youtrack account - https://www.jetbrains.com/youtrack/
-  2 Creat/ Register  your account on GitHub
-  3 Creat/ Register  your account on hosting (need to have MySQL, python) https://www.heliohost.org/
+  1. Creat/ Register  your Youtrack account - https://www.jetbrains.com/youtrack/
+  2. Creat/ Register  your account on GitHub
+  3. Creat/ Register  your account on hosting (need to have MySQL, python) https://www.heliohost.org/
 
 
 Software need to install and configure additional plugins:
-  1 pyCharm from https://www.jetbrains.com/pycharm/download/
-  2 Add plugin version control GitHub to pyCharm ( tutorial 3 AddGitHub)
-  3 Add plugin for YouTrack (tutorial 2 Agile Board Jetbrains)
-  4 Add plugin (External Tool) FileZila (tutorial 5 Add FTP-to_pyCharm)
+  1. pyCharm from https://www.jetbrains.com/pycharm/download/
+  2. Add plugin version control GitHub to pyCharm ( tutorial 3 AddGitHub)
+  3. Add plugin for YouTrack (tutorial 2 Agile Board Jetbrains)
+  4. Add plugin (External Tool) FileZila (tutorial 5 Add FTP-to_pyCharm)
 
 
 ```
