@@ -30,7 +30,6 @@ def getCustomers():
         newresult.append(customer.__dict__)
     return json.dumps(newresult)
 
-
 @app.route('/customers/country', methods=['GET'])
 def getCustomersCountry():
     result = db.countrySort("customers")
