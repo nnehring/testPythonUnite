@@ -7,7 +7,7 @@ import decimal
 from flask_cors import CORS
 # application = app
 app = Flask(__name__)
-db = DBClass("localhost", "natnz", "Helmaria222*", "natnz_SaleDB")
+db = DBClass("localhost", "natnz", "HelioUnitec*", "natnz_SaleDB")
 #db = DBClass("localhost", "root", "", "testflask")
 CORS(app)
 
