@@ -1,6 +1,5 @@
 import mysql.connector
 
-
 class DBClass:
     def __init__(self, host, username, password, dbname):
         self.__dbname = dbname
